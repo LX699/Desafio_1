@@ -5,7 +5,7 @@ on:
   push:
     branches: [ "Pipeline" ]
     paths:
-    - 'Backend/**'
+      - 'Backend/**'
 jobs:
   build:
 
@@ -20,8 +20,10 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Clean
+        working-directory: Backend  # Cambia al directorio 'Backend'
         run: mvn clean
       - name: Build
+        working-directory: Backend  # Cambia al directorio 'Backend'
         run: mvn -B package
 
   test:
@@ -36,8 +38,11 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Clean
+        working-directory: Backend  # Cambia al directorio 'Backend'
         run: mvn clean
       - name: Build
+        working-directory: Backend  # Cambia al directorio 'Backend'
         run: mvn -B package
       - name: Test
+        working-directory: Backend  # Cambia al directorio 'Backend'
         run: mvn test
