@@ -52,6 +52,10 @@ public class AutomovilService {
         return cars;
     }
 
+    public List<Automovil> getAutomoviles() {
+        return cars;
+    }
+
     public List<String> getColores() {
         return Arrays.asList(COLORS);
     }

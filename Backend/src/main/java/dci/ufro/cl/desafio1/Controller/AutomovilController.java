@@ -53,7 +53,11 @@ public class AutomovilController {
         return automovilService.getTipos();
     }
 
-
+    @GetMapping("/lista")
+    public ResponseEntity<List<Automovil>> obtenerAutomoviles() {
+        List<Automovil> automoviles = automovilService.getAutomoviles();
+        return new ResponseEntity<>(automoviles, HttpStatus.OK);
+    }
 
 
 }
