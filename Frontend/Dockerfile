@@ -6,6 +6,6 @@ COPY . .
 
 EXPOSE 8080
 
-RUN nmp install
+RUN npm install
 
 CMD ["npm", "run", "serve"]
