@@ -78,7 +78,7 @@ export default {
 },
   methods: {
     obtenerAutomoviles() {
-  axios.get('http://localhost:8080/automoviles/lista')
+  axios.get('http://localhost:3001/automoviles/lista')
     .then(response => {
       this.automoviles = response.data;
     })
@@ -87,7 +87,7 @@ export default {
     });
 },
 generarAutomoviles() {
-  axios.get(`http://localhost:8080/automoviles/generar/${this.cantidad}`)
+  axios.get(`http://localhost:3001/automoviles/generar/${this.cantidad}`)
     .then(response => {
       this.automoviles = response.data;
       this.obtenerAutomoviles(); // Llamar a obtenerAutomoviles para obtener la lista actualizada
@@ -113,7 +113,7 @@ generarAutomoviles() {
 },
 
 getColores(){
-  axios.get('http://localhost:8080/automoviles/colores')
+  axios.get('http://localhost:3001/automoviles/colores')
     .then(response => {
       this.colores = response.data;
     })
@@ -123,7 +123,7 @@ getColores(){
 },
 
 getTipos(){
-  axios.get('http://localhost:8080/automoviles/tipoAutomovil')
+  axios.get('http://localhost:3001/automoviles/tipoAutomovil')
     .then(response => {
       this.tipos = response.data;
     })
@@ -136,7 +136,7 @@ buscarPorTipo() {
   if (this.selectedTipo === '') {
     this.obtenerAutomoviles(); // Obtener la lista completa de automóviles sin filtro
   } else {
-  axios.get(`http://localhost:8080/automoviles/buscarPorTipo?tipo=${this.selectedTipo}`)
+  axios.get(`http://localhost:3001/automoviles/buscarPorTipo?tipo=${this.selectedTipo}`)
     .then(response => {
       this.automoviles = response.data;
     })
@@ -150,7 +150,7 @@ buscarPorColor() {
   if (this.selectedColor === '') {
     this.obtenerAutomoviles(); // Obtener la lista completa de automóviles sin filtro
   } else {
-    axios.get(`http://localhost:8080/automoviles/buscarPorColor?color=${this.selectedColor}`)
+    axios.get(`http://localhost:3001/automoviles/buscarPorColor?color=${this.selectedColor}`)
       .then(response => {
         this.automoviles = response.data;
       })
@@ -167,7 +167,7 @@ checkMaxPrice() {
   },
 
 buscarPorPrecio() {
-  axios.get('http://localhost:8080/automoviles/filtrarPorPrecio', {
+  axios.get('http://localhost:3001/automoviles/filtrarPorPrecio', {
       params: {
         maxPrice: this.maxPrice
       }
