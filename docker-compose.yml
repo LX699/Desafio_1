@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  apicar:
+    container_name: apicar
+    build:
+      context: ./Backend
+    ports:
+      - 3001:3001
+    networks:
+      - red
+
+  uicar:
+    container_name: uicar
+    build:
+      context: ./Fron
+    ports:
+      - 8080:8080
+    networks:
+      - red
+
+networks:
+  red:
+    driver: bridge
+
